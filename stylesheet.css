@@ -34,6 +34,11 @@ body{
     -webkit-font-smoothing:antialiased;
 }
 
+.link {
+    text-align: center;
+    font-style: italic;
+}
+
 a{ color:var(--link); }
 
 .markdown-body{ max-width:860px; padding:2rem 1.25rem; margin:0 auto; }
@@ -47,4 +52,5 @@ a{ color:var(--link); }
     border:1px solid var(--cell);
     padding:.6em .8em;
 }
+
 .markdown-body thead th{ background:var(--thead); }

@@ -1,4 +1,4 @@
-/* Base (light) tokens */
+/* Base light theme colors */
 :root{
     --bg:#ffffff;
     --text:#24292e;
@@ -9,7 +9,7 @@
     --link:#0969da;
 }
 
-/* System dark mode override */
+/* If system wants dark theme, serve dark theme colors */
 @media (prefers-color-scheme: dark){
 :root{
     --bg:#0d1117;
@@ -34,11 +34,13 @@ body{
     -webkit-font-smoothing:antialiased;
 }
 
-.link {
+/* Center the "Return to Home" links and italicize */
+.centered-link {
     text-align: center;
     font-style: italic;
 }
 
+/* Link coloring */
 a{ color:var(--link); }
 
 .markdown-body{ max-width:860px; padding:2rem 1.25rem; margin:0 auto; }

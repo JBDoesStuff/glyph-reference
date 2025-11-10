@@ -51,12 +51,12 @@ th {
   font-variant-emoji: emoji;
 }
 
+/* Unused class */
 /* Force Inter on some problematic glyphs */
 .force-inter {
     font-family: "Inter", sans-serif !important;
     font-variant-emoji: text;
 }
-
 
 /* Center the "Return to Home" links and italicize */
 .centered-link {

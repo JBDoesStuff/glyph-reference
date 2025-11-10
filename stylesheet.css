@@ -45,6 +45,10 @@ th {
     text-align: center;
 }
 
+.emoji {
+    font-variant-emoji: emoji;
+}
+
 /* Center the "Return to Home" links and italicize */
 .centered-link {
     text-align: center;

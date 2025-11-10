@@ -53,7 +53,7 @@ th {
 
 /* Force Inter on some problematic glyphs */
 .force-inter {
-    font: "Inter", sans-serif;
+    font-family: "Inter", sans-serif !important;
     font-variant-emoji: text;
 }
 

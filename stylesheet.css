@@ -45,9 +45,18 @@ th {
     text-align: center;
 }
 
+/* Use emoji font for emojis only */
 .emoji {
-    font-variant-emoji: emoji;
+  font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji";
+  font-variant-emoji: emoji;
 }
+
+/* Force Inter on some problematic glyphs */
+.force-inter {
+    font: "Inter", sans-serif;
+    font-variant-emoji: text;
+}
+
 
 /* Center the "Return to Home" links and italicize */
 .centered-link {

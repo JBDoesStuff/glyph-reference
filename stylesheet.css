@@ -98,7 +98,7 @@ losing my mind over here */
 }
 
 .markdown-body table{
-  display: block; /* enables horizontal scroll */
+  /* display: block; /* enables horizontal scroll */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }

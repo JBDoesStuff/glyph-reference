@@ -93,15 +93,17 @@ losing my mind over here */
     table-layout: fixed;
 }
 
+/*
 .markdown-body{
   overflow-x: auto;
 }
 
 .markdown-body table{
-  /* display: block; /* enables horizontal scroll */
+  /* display: block; - enables horizontal scroll
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
+*/
 
 .markdown-body th,
 .markdown-body td {

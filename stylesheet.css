@@ -91,6 +91,7 @@ losing my mind over here */
     width: 100%;
     max-width: 100%;
     table-layout: fixed;
+    overflow-wrap: break-word;
 }
 
 /*

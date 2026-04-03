@@ -10,39 +10,48 @@
 </head>
 
 <body>
-  <div class="markdown-body">
-    <h1>Worldbuilding Character Reference</h1>
-    <h2>Unveiled Symbols</h2>
+    <div class="markdown-body">
+        <h1>Worldbuilding Character Reference</h1>
+        <h2>Unveiled Symbols</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Symbol</th>
-                <th>Name / Use</th>
-                <th>Symbol</th>
-                <th>Name / Use</th>
-                <th>Symbol</th>
-                <th>Name / Use</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="glyph">🞛</td>
-                <td>Crystal (1st)</td>
-                <td class="glyph">🞜/🟆/▣/◈</td>
-                <td>Crystal (alts)</td>
-                <td class="glyph"></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-    <p class="centered-link"><a href="../index.html">Return to Home</a></p>
-  </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name / Use</th>
+                    <th>Symbol</th>
+                    <th>Name / Use</th>
+                    <th>Symbol</th>
+                    <th>Name / Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="glyph copyable" onclick="copyChar('\u{1F79B}', this)">🞛</td>
+                    <td>Crystal (1st)</td>
+                    <td class="glyph">🞜/🟆/▣/◈</td>
+                    <td>Crystal (alts)</td>
+                    <td class="glyph"></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="centered-link"><a href="../index.html">Return to Home</a></p>
+    </div>
 
     <script>
-        function copyChar(char) {
-            navigator.clipboard.writeText(char);
+        function copyChar(char, el) {
+            navigator.clipboard.writeText(char).then(() => {
+                el.classList.remove('copied');
+                void el.offsetWidth;
+                el.classList.add('copied');
+
+                setTimeout(() => {
+                    el.classList.remove('copied');
+                }, 700);
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
         }
     </script>
-    
 </body>

@@ -115,3 +115,22 @@ losing my mind over here */
 .markdown-body thead th {
     background: var(--thead);
 }
+
+/* So this class set makes links a bit more obvious, at least I think */
+
+/* Make copyable cells look clickable */
+.copyable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+/* Highlight copyable cells on hover to indicate interactivity */
+.copyable:hover {
+  background: var(--thead);
+}
+
+/* Add a slight "press" effect on click */
+.copyable:active {
+  transform: scale(0.96);
+}

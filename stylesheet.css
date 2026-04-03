@@ -7,6 +7,7 @@
     --thead: #f6f8fa;
     --cell: #dfe2e5;
     --link: #0969da;
+    --confirm: #28a745;
 }
 
 /* If system wants dark theme, serve dark theme colors */
@@ -18,6 +19,7 @@
     --thead: #161b22;
     --cell: #30363d;
     --link: #58a6ff;
+    --confirm: #238636;
 } }
 
 /* Let built-in controls follow theme as well */
@@ -133,4 +135,10 @@ td.glyph.copyable:hover {
 /* Add a slight "press" effect on click */
 td.glyph.copyable:active {
   transform: scale(0.96);
+}
+
+/* After the cell is copied, show a color to confirm */
+td.glyph.copyable.copied {
+  background: var(--confirm);
+  color: white
 }

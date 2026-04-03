@@ -27,51 +27,51 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="glyph copyable" onclick="copyChar('\u00B0')">°</td>
+                    <td class="glyph copyable" onclick="copyChar('\u00B0', this)">°</td>
                     <td>Degree sign</td>
-                    <td class="glyph copyable" onclick="copyChar('\u2013')">–</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2013', this)">–</td>
                     <td>En dash</td>
-                    <td class="glyph copyable" onclick="copyChar('\u2014')">—</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2014', this)">—</td>
                     <td>Em dash</td>
                 </tr>
                 <tr>
-                    <td class="glyph copyable" onclick="copyChar('\u2026')">…</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2026', this)">…</td>
                     <td>Ellipsis</td>
-                    <td class="glyph copyable" onclick="copyChar('\u00A9')">©</td>
+                    <td class="glyph copyable" onclick="copyChar('\u00A9', this)">©</td>
                     <td>Copyright</td>
-                    <td class="glyph copyable" onclick="copyChar('\u00AE')">®</td>
+                    <td class="glyph copyable" onclick="copyChar('\u00AE', this)">®</td>
                     <td>Registered</td>
                 </tr>
                 <tr>
-                    <td class="glyph copyable" onclick="copyChar('\u2122')">™</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2122', this)">™</td>
                     <td>Trademark</td>
-                    <td class="glyph copyable" onclick="copyChar('\u00A7')">§</td>
+                    <td class="glyph copyable" onclick="copyChar('\u00A7', this)">§</td>
                     <td>Section sign</td>
-                    <td class="glyph copyable" onclick="copyChar('\u00B6')">¶</td>
+                    <td class="glyph copyable" onclick="copyChar('\u00B6', this)">¶</td>
                     <td>Pilcrow</td>
                 </tr>
                 <tr>
-                    <td class="glyph copyable" onclick="copyChar('\u2022')">•</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2022', this)">•</td>
                     <td>Bullet</td>
-                    <td class="glyph copyable" onclick="copyChar('\u2713\uFE0E')">✓</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2713\uFE0E', this)">✓</td>
                     <td>Check mark</td>
-                    <td class="glyph copyable" onclick="copyChar('\u2717\uFE0E')">✗</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2717\uFE0E', this)">✗</td>
                     <td>Cross (X)</td>
                 </tr>
                 <tr>
-                    <td class="glyph copyable" onclick="copyChar('\u2611\uFE0E')">☑</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2611\uFE0E', this)">☑</td>
                     <td>Checked box</td>
-                    <td class="glyph copyable" onclick="copyChar('\u2612\uFE0E')">☒</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2612\uFE0E', this)">☒</td>
                     <td>Crossed out box</td>
-                    <td class="glyph copyable" onclick="copyChar('\u2610\uFE0E')">☐</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2610\uFE0E', this)">☐</td>
                     <td>Empty box</td>
                 </tr>
                 <tr>
-                    <td class="glyph copyable" onclick="copyChar('\u2605\uFE0E')">★</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2605\uFE0E', this)">★</td>
                     <td>Star (filled)</td>
-                    <td class="glyph copyable" onclick="copyChar('\u2606\uFE0E')">☆</td>
+                    <td class="glyph copyable" onclick="copyChar('\u2606\uFE0E', this)">☆</td>
                     <td>Star (outline)</td>
-                    <td class="glyph copyable" onclick="copyChar('\u203D')">‽</td>
+                    <td class="glyph copyable" onclick="copyChar('\u203D', this)">‽</td>
                     <td>Interrobang</td>
                 </tr>
             </tbody>
@@ -510,8 +510,18 @@
     </div>
 
     <script>
-        function copyChar(char) {
-            navigator.clipboard.writeText(char);
+        function copyChar(char, el) {
+            navigator.clipboard.writeText(char).then(() => {
+                el.classList.remove('copied');
+                void el.offsetWidth;
+                el.classList.add('copied');
+
+                setTimeout(() => {
+                    el.classList.remove('copied');
+                }, 700);
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
         }
     </script>
 

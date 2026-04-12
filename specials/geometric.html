@@ -10,49 +10,58 @@
 </head>
 
 <body>
-  <div class="markdown-body">
-    <h1>Geometric Characters Reference</h1>
+    <div class="markdown-body">
+        <h1>Geometric Characters Reference</h1>
 
-    <h2>Basic Shapes</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Symbol</th>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="glyph">● ○</td>
-                <td>Circles</td>
-                <td class="glyph">■ □</td>
-                <td>Squares</td>
-                <td class="glyph">▲ △</td>
-                <td>Triangles</td>
-            </tr>
-            <tr>
-                <td class="glyph">◆ ◇</td>
-                <td>Diamonds</td>
-                <td class="glyph">◀ ◁</td>
-                <td>Left-Pointing Triangles</td>
-                <td class="glyph">▶ ▷</td>
-                <td>Right-Pointing Triangles</td>
-        </tbody>
-    </table>
+        <h2>Basic Shapes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="glyph">● ○</td>
+                    <td>Circles</td>
+                    <td class="glyph">■ □</td>
+                    <td>Squares</td>
+                    <td class="glyph">▲ △</td>
+                    <td>Triangles</td>
+                </tr>
+                <tr>
+                    <td class="glyph">◆ ◇</td>
+                    <td>Diamonds</td>
+                    <td class="glyph">◀ ◁</td>
+                    <td>Left-Pointing Triangles</td>
+                    <td class="glyph">▶ ▷</td>
+                    <td>Right-Pointing Triangles</td>
+            </tbody>
+        </table>
 
-    <h2>Box Drawing (U+2500..U+257F)</h2>
-    <p>This is a placeholder</p>
-    <p class="centered-link"><a href="../index.html">Return to Home</a></p>
-  </div>
+        <h2>Box Drawing (U+2500..U+257F)</h2>
+        <p>This is a placeholder</p>
+        <p class="centered-link"><a href="../index.html">Return to Home</a></p>
+    </div>
 
     <script>
-        function copyChar(char) {
-            navigator.clipboard.writeText(char);
+        function copyChar(char, el) {
+            navigator.clipboard.writeText(char).then(() => {
+                el.classList.remove('copied');
+                void el.offsetWidth;
+                el.classList.add('copied');
+
+                setTimeout(() => {
+                    el.classList.remove('copied');
+                }, 700);
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
         }
     </script>
-    
 </body>
